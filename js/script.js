@@ -15,6 +15,24 @@ testWebP(function (support) {
   }
 });
 
+$(".form_button_fade").click(function () {
+  $(".form_body").fadeIn();
+  $("html").addClass("lock");
+});
+$(".form_button_fade_nav").click(function () {
+  $(".form_body").fadeIn();
+  $(".header_burger,.header_nav").removeClass("active");
+});
+$(".form_close").click(function () {
+  $(".form_body").fadeOut();
+  $("html").removeClass("lock");
+});
+$(document).ready(function () {
+  $(".header_burger").click(function (event) {
+    $(".header_burger,.header_nav").toggleClass("active");
+    $("html").toggleClass("lock");
+  });
+});
 $(function () {
   // при нажатии на кнопку scrollup
   $(".scrollup").click(function () {
@@ -28,7 +46,7 @@ $(function () {
   });
 });
 $(window).scroll(function () {
-  if ($(this).scrollTop() > 1500) {
+  if ($(this).scrollTop() > 1000) {
     $(".scrollup").fadeIn();
   } else {
     $(".scrollup").fadeOut();
