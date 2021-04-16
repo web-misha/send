@@ -27,6 +27,7 @@ $(".form_close").click(function () {
   $(".form_body").fadeOut();
   $("html").removeClass("lock");
 });
+
 $(document).ready(function () {
   $(".header_burger").click(function (event) {
     $(".header_burger,.header_nav").toggleClass("active");
@@ -53,30 +54,30 @@ $(window).scroll(function () {
   }
 });
 
+var time = 2;
 var cc = 1;
 $(window).scroll(function () {
-  var target = $(".main_numbers");
-  var targetPos = target.offset().top;
-  var winHeight = $(window).height();
-  var scrollToElem = targetPos - winHeight;
-  $(window).scroll(function () {
-    var winScrollTop = $(this).scrollTop();
-
-    if ((cc < 2) & (winScrollTop > scrollToElem)) {
-      var count = 0,
-        block = $(".numbers_title_count"),
-        interval = setInterval(function () {
-          count++;
-
-          block.text(count);
-
-          if (count === 15) {
-            clearInterval(interval);
-          }
-        }, 400);
-
-      block.text(count);
-      cc = cc + 2;
+  $("#counter").each(function () {
+    var cPos = $(this).offset().top,
+      topWindow = $(window).scrollTop();
+    if (cPos < topWindow + 250) {
+      if (cc < 2) {
+        $("div").each(function () {
+          var i = 1,
+            num = $(this).data("num"),
+            step = (300 * time) / num,
+            that = $(this),
+            int = setInterval(function () {
+              if (i <= num) {
+                that.html(i);
+              } else {
+                cc = cc + 2;
+                clearInterval(int);
+              }
+              i++;
+            }, step);
+        });
+      }
     }
   });
 });
