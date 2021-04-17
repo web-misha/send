@@ -15,6 +15,14 @@ testWebP(function (support) {
   }
 });
 
+new Swiper('.swiper-container',{
+  loop: true,
+  navigation: {
+    nextEl:'.swiper-button-next',
+    prevEl:'.swiper-button-prev'
+  },
+});
+
 $(".form_button_fade").click(function () {
   $(".form_body").fadeIn();
   $("html").addClass("lock");
@@ -65,7 +73,7 @@ $(window).scroll(function () {
         $("div").each(function () {
           var i = 1,
             num = $(this).data("num"),
-            step = (300 * time) / num,
+            step = (200 * time) / num,
             that = $(this),
             int = setInterval(function () {
               if (i <= num) {

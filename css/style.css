@@ -401,6 +401,10 @@ h3 {
   cursor: pointer;
 }
 
+.arrow_top_img_mob {
+  display: none;
+}
+
 .header_burger {
   display: none;
   position: fixed;
@@ -730,7 +734,7 @@ h3 {
   color: #ffffff;
   font-weight: 700;
   padding: 11px 45px 12px 53px;
-  border: 3px dashed #51abd3;
+  border: 3px solid #51abd3;
   -webkit-filter: drop-shadow(1px 4px 8px rgba(0, 0, 0, 0.25));
           filter: drop-shadow(1px 4px 8px rgba(0, 0, 0, 0.25));
   border-radius: 1px;
@@ -1000,7 +1004,7 @@ h3 {
   color: white;
   font-weight: 700;
   padding: 21px 51px 21px 59px;
-  border: 3px dashed #131313;
+  border: 3px solid #131313;
   -webkit-filter: drop-shadow(1px 4px 8px rgba(0, 0, 0, 0.25));
           filter: drop-shadow(1px 4px 8px rgba(0, 0, 0, 0.25));
   border-radius: 1px;
@@ -1136,33 +1140,43 @@ h3 {
 
 .contacts_block_page a:first-child {
   position: relative;
-  padding-left: 35px;
 }
 
 .contacts_block_page a:first-child::before {
   content: url(../img/geo.svg);
   position: absolute;
-  top: 0;
-  left: 0;
+  left: -30px;
+}
+
+.contacts_block_page a:nth-child(2) {
+  position: relative;
 }
 
 .contacts_block_page a:nth-child(2)::before {
   content: url(../img/mail_contacts.svg);
-  margin-right: 20px;
+  position: absolute;
+  left: -30px;
+}
+
+.contacts_block_page a:nth-child(3) {
+  position: relative;
 }
 
 .contacts_block_page a:nth-child(3)::before {
   content: url(../img/tel_contacts.svg);
-  margin-right: 20px;
+  position: absolute;
+  left: -30px;
 }
 
 .contacts_block_page a:last-child {
   margin: 0;
+  position: relative;
 }
 
 .contacts_block_page a:last-child::before {
   content: url(../img/tel_contacts.svg);
-  margin-right: 20px;
+  position: absolute;
+  left: -30px;
 }
 
 .contacts_social {
@@ -1205,6 +1219,9 @@ h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: relative;
 }
 
@@ -1238,6 +1255,8 @@ h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-filter: drop-shadow(1px 4px 8px rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(1px 4px 8px rgba(0, 0, 0, 0.25));
 }
 
 .gallery_block:last-child {
@@ -1246,6 +1265,14 @@ h3 {
 
 .gallery_block_img {
   margin-top: 30px;
+}
+
+.swiper-container {
+  display: none;
+}
+
+.gallery_video {
+  display: none;
 }
 
 .footer {
@@ -1355,7 +1382,6 @@ iframe {
   display: block;
   font-size: calc( 18px + 6 * ((100vw - 320px) / 2240));
   color: #ccd351;
-  opacity: 0.8;
 }
 
 .contacts_link a img {
@@ -1381,6 +1407,7 @@ iframe {
 
 .contacts_politice div a {
   color: #ccd351;
+  opacity: 0.8;
   font-size: calc( 14px + 4 * ((100vw - 320px) / 2240));
 }
 
@@ -1533,7 +1560,7 @@ iframe {
   }
 
   .footer_map {
-    margin: 0 auto;
+    width: 100%;
   }
 
   iframe {
@@ -1566,12 +1593,33 @@ iframe {
     margin-top: 0;
   }
 
+  .contacts_block img {
+    width: 47px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
   .about_item {
     margin-bottom: 50px;
   }
 }
 
 @media (max-width: 768px) {
+  .arrow_top_button {
+    right: 0;
+  }
+
+  .arrow_top_img_mob {
+    display: block;
+    width: 54px;
+    height: 60px;
+  }
+
+  .arrow_top_img {
+    display: none;
+  }
+
   .form_content {
     padding: 30px;
   }
@@ -1784,8 +1832,8 @@ iframe {
   }
 
   .specialist_content {
-    padding-top: 110px;
-    padding-bottom: 40px;
+    padding-top: 130px;
+    padding-bottom: 60px;
   }
 
   .specialist_left_title {
@@ -1830,20 +1878,43 @@ iframe {
     margin-bottom: 0;
   }
 
+  .contacts_block_page a {
+    padding-left: 30px;
+  }
+
+  .contacts_block_page a:first-child::before {
+    content: url(../img/geo.svg);
+    position: absolute;
+    left: -5px;
+  }
+
+  .contacts_block_page a:nth-child(2)::before {
+    content: url(../img/mail_contacts.svg);
+    position: absolute;
+    left: -5px;
+  }
+
+  .contacts_block_page a:nth-child(3)::before {
+    content: url(../img/tel_contacts.svg);
+    position: absolute;
+    left: -5px;
+  }
+
+  .contacts_block_page a:last-child::before {
+    content: url(../img/tel_contacts.svg);
+    position: absolute;
+    left: -5px;
+  }
+
   .gallery_document a:first-child {
     margin-right: 0;
   }
 
-  .gallery_content {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+  .gallery_document a:last-child img {
+    margin-top: 70px;
   }
 
-  .gallery_content::before,
-  .gallery_content::after {
+  .gallery_content {
     display: none;
   }
 
@@ -1853,6 +1924,24 @@ iframe {
 
   .gallery_block_img {
     margin: 0;
+  }
+
+  .swiper-container {
+    display: block;
+    margin-bottom: 70px;
+    -webkit-filter: drop-shadow(1px 4px 8px rgba(0, 0, 0, 0.25));
+            filter: drop-shadow(1px 4px 8px rgba(0, 0, 0, 0.25));
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    color: #CCD351;
+  }
+
+  .gallery_video {
+    display: block;
+    -webkit-filter: drop-shadow(1px 4px 8px rgba(0, 0, 0, 0.25));
+            filter: drop-shadow(1px 4px 8px rgba(0, 0, 0, 0.25));
   }
 
   .footer_desight {
